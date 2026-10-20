@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      @keyframes spinCW {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes spinCCW {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-360deg); }
+      }
+      @keyframes snowflakePulse {
+        0%, 100% {
+          filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.8)) drop-shadow(0 0 28px rgba(52, 211, 153, 0.6));
+          opacity: 0.96;
+        }
+        50% {
+          filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 45px rgba(192, 132, 252, 0.85));
+          opacity: 1;
+        }
+      }
+      @keyframes starFlareBreath {
+        0%, 100% {
+          transform: scale(0.92) rotate(0deg);
+          opacity: 0.85;
+        }
+        50% {
+          transform: scale(1.15) rotate(15deg);
+          opacity: 1;
+        }
+      }
+
+      .snowflake-main {
+        transform-origin: 160px 160px;
+        animation: spinCW 32s linear infinite, snowflakePulse 4.5s ease-in-out infinite;
+      }
+      .snowflake-halo {
+        transform-origin: 160px 160px;
+        animation: spinCCW 50s linear infinite;
+      }
+      .snowflake-flare {
+        transform-origin: 160px 160px;
+        animation: starFlareBreath 3s ease-in-out infinite;
+      }
+    </style>
+
+    <!-- Aurora Crystalline Shimmer Gradients -->
+    <linearGradient id="auroraIceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="28%" stop-color="#38BDF8" />
+      <stop offset="68%" stop-color="#818CF8" />
+      <stop offset="100%" stop-color="#C084FC" />
+    </linearGradient>
+
+    <!-- Facet Translucent Glass Shimmers -->
+    <linearGradient id="facetGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85" />
+      <stop offset="35%" stop-color="#7DD3FC" stop-opacity="0.55" />
+      <stop offset="80%" stop-color="#0284C7" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="facetGradAlt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="30%" stop-color="#34D399" stop-opacity="0.5" />
+      <stop offset="75%" stop-color="#38BDF8" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.15" />
+    </linearGradient>
+
+    <radialGradient id="auroraCoreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.5" />
+      <stop offset="35%" stop-color="#34D399" stop-opacity="0.3" />
+      <stop offset="70%" stop-color="#818CF8" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#040914" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="starCoreGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#7DD3FC" />
+      <stop offset="75%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </radialGradient>
+
+    <!-- High-Luminosity Glow Filter -->
+    <filter id="iceBloom" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Mathematical Elsa 6-Fold Snowflake Branch with Solid Diamond Facets -->
+    <g id="pureSnowArm">
+      <!-- Ambient Ice Glow Underlay -->
+      <line x1="0" y1="0" x2="0" y2="-130" stroke="rgba(56, 189, 248, 0.45)" stroke-width="5" stroke-linecap="round" />
+      <!-- Main Ice Needle Spine -->
+      <line x1="0" y1="0" x2="0" y2="-130" stroke="url(#auroraIceGrad)" stroke-width="3" stroke-linecap="round" />
+      <!-- Pure White Diamond Spine Core -->
+      <line x1="0" y1="0" x2="0" y2="-128" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" opacity="0.95" />
+
+      <!-- Inner Faceted Rhombus Prism (y = -16 to -42) -->
+      <polygon points="0,-16 11,-29 0,-42 -11,-29" fill="url(#facetGrad)" stroke="url(#auroraIceGrad)" stroke-width="1.8" />
+      <line x1="0" y1="-16" x2="0" y2="-42" stroke="#FFFFFF" stroke-width="1.2" opacity="0.95" />
+      <line x1="-11" y1="-29" x2="11" y2="-29" stroke="rgba(255,255,255,0.75)" stroke-width="1" />
+
+      <!-- Lower Primary Crystal Chevron & Wing Blades (y = -46 to -72) -->
+      <polygon points="0,-46 -24,-66 -16,-72 -5,-58" fill="url(#facetGradAlt)" stroke="#38BDF8" stroke-width="1.6" />
+      <polygon points="0,-46 24,-66 16,-72 5,-58" fill="url(#facetGradAlt)" stroke="#38BDF8" stroke-width="1.6" />
+      
+      <path d="M 0,-46 L -24,-66 M 0,-46 L 24,-66" stroke="url(#auroraIceGrad)" stroke-width="2.6" stroke-linecap="round" />
+      <line x1="-18" y1="-61" x2="-14" y2="-72" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="18" y1="-61" x2="14" y2="-72" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="-18" y1="-61" x2="-26" y2="-66" stroke="#7DD3FC" stroke-width="1.6" stroke-linecap="round" />
+      <line x1="18" y1="-61" x2="26" y2="-66" stroke="#7DD3FC" stroke-width="1.6" stroke-linecap="round" />
+
+      <!-- Major Middle Crystal Blade & Diamond Facets (y = -76 to -114) -->
+      <polygon points="0,-80 -34,-104 -24,-114 -5,-96" fill="url(#facetGrad)" stroke="url(#auroraIceGrad)" stroke-width="2" />
+      <polygon points="0,-80 34,-104 24,-114 5,-96" fill="url(#facetGrad)" stroke="url(#auroraIceGrad)" stroke-width="2" />
+
+      <path d="M 0,-80 L -34,-104 M 0,-80 L 34,-104" stroke="url(#auroraIceGrad)" stroke-width="3" stroke-linecap="round" />
+      <!-- White blade spine -->
+      <line x1="0" y1="-80" x2="-32" y2="-102" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.9" />
+      <line x1="0" y1="-80" x2="32" y2="-102" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" opacity="0.9" />
+
+      <!-- Crystal Feather Nodes -->
+      <line x1="-22" y1="-96" x2="-34" y2="-96" stroke="#34D399" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="22" y1="-96" x2="34" y2="-96" stroke="#34D399" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="-22" y1="-96" x2="-20" y2="-108" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="22" y1="-96" x2="20" y2="-108" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" />
+
+      <!-- Upper Sub-Zero Feather & Chevrons -->
+      <path d="M 0,-112 L -16,-124 M 0,-112 L 16,-124" stroke="#F0FDF4" stroke-width="2.2" stroke-linecap="round" />
+      <line x1="-10" y1="-120" x2="-9" y2="-128" stroke="#38BDF8" stroke-width="1.6" stroke-linecap="round" />
+      <line x1="10" y1="-120" x2="9" y2="-128" stroke="#38BDF8" stroke-width="1.6" stroke-linecap="round" />
+
+      <!-- Terminal Glacial Diamond Spearhead -->
+      <polygon points="0,-144 11,-130 0,-118 -11,-130" fill="url(#starCoreGrad)" stroke="#FFFFFF" stroke-width="2" filter="url(#iceBloom)" />
+      <polygon points="0,-140 6,-130 0,-122 -6,-130" fill="#FFFFFF" opacity="0.9" />
+      <circle cx="0" cy="-130" r="2.4" fill="#38BDF8" />
+    </g>
+
+    <!-- Concentric Hexagonal Webbing Strut -->
+    <g id="pureHexWeb">
+      <line x1="0" y1="-34" x2="29.44" y2="-17" stroke="url(#auroraIceGrad)" stroke-width="2.2" opacity="0.9" />
+      <line x1="0" y1="-72" x2="62.35" y2="-36" stroke="#34D399" stroke-width="1.8" stroke-dasharray="4, 4" opacity="0.85" />
+      <!-- Diamond node at inner strut junction -->
+      <polygon points="0,-34 3.5,-37.5 0,-41 -3.5,-37.5" fill="#FFFFFF" stroke="#38BDF8" stroke-width="1.2" />
+    </g>
+  </defs>
+
+  <!-- Ambient Radiant Disc -->
+  <circle cx="160" cy="160" r="150" fill="url(#auroraCoreGlow)" />
+
+  <!-- Outer Celestial Astrolabe Halo (Counter-Clockwise Rotation) -->
+  <g class="snowflake-halo">
+    <!-- Concentric Celestial Rings -->
+    <circle cx="160" cy="160" r="154" fill="none" stroke="#7DD3FC" stroke-width="0.9" stroke-dasharray="2, 6" opacity="0.7" />
+    <circle cx="160" cy="160" r="148" fill="none" stroke="url(#auroraIceGrad)" stroke-width="1.5" opacity="0.85" />
+    <circle cx="160" cy="160" r="142" fill="none" stroke="#38BDF8" stroke-width="1.2" stroke-dasharray="6, 8" opacity="0.75" />
+    
+    <!-- 6 Primary Celestial Orbit Diamonds (Aligned with 6 Arms) -->
+    <!-- North (0 deg) -->
+    <polygon points="160,8 165,14 160,20 155,14" fill="#FFFFFF" stroke="#38BDF8" stroke-width="1.4" />
+    <circle cx="160" cy="14" r="1.8" fill="#34D399" />
+    <!-- South (180 deg) -->
+    <polygon points="160,300 165,306 160,312 155,306" fill="#FFFFFF" stroke="#34D399" stroke-width="1.4" />
+    <circle cx="160" cy="306" r="1.8" fill="#38BDF8" />
+    <!-- 60 deg: (160 + 148*cos(30), 160 - 148*sin(30)) -> 148*0.866 = 128.17, 148*0.5 = 74 -> (288, 86) -->
+    <polygon points="288,86 294,89 291,95 285,92" fill="#FFFFFF" stroke="#C084FC" stroke-width="1.4" />
+    <!-- 120 deg: (288, 234) -->
+    <polygon points="288,234 294,231 291,225 285,228" fill="#FFFFFF" stroke="#38BDF8" stroke-width="1.4" />
+    <!-- 240 deg: (32, 234) -->
+    <polygon points="32,234 26,231 29,225 35,228" fill="#FFFFFF" stroke="#34D399" stroke-width="1.4" />
+    <!-- 300 deg: (32, 86) -->
+    <polygon points="32,86 26,89 29,95 35,92" fill="#FFFFFF" stroke="#C084FC" stroke-width="1.4" />
+
+    <!-- 6 Intermediate Astrolabe Rune Dots (30 deg offsets) -->
+    <circle cx="234" cy="32" r="2.5" fill="#38BDF8" />
+    <circle cx="308" cy="160" r="2.5" fill="#34D399" />
+    <circle cx="234" cy="288" r="2.5" fill="#C084FC" />
+    <circle cx="86" cy="288" r="2.5" fill="#38BDF8" />
+    <circle cx="12" cy="160" r="2.5" fill="#34D399" />
+    <circle cx="86" cy="32" r="2.5" fill="#C084FC" />
+  </g>
+
+  <!-- Primary Crystalline 6-Fold Snowflake (Clockwise Rotation) -->
+  <g class="snowflake-main">
+    <g transform="translate(160 160)">
+      <!-- 6 Interlocking Hexagonal Web Struts -->
+      <use href="#pureHexWeb" />
+      <use href="#pureHexWeb" transform="rotate(60)" />
+      <use href="#pureHexWeb" transform="rotate(120)" />
+      <use href="#pureHexWeb" transform="rotate(180)" />
+      <use href="#pureHexWeb" transform="rotate(240)" />
+      <use href="#pureHexWeb" transform="rotate(300)" />
+
+      <!-- 6 Primary Symmetrical Crystal Arms -->
+      <use href="#pureSnowArm" />
+      <use href="#pureSnowArm" transform="rotate(60)" />
+      <use href="#pureSnowArm" transform="rotate(120)" />
+      <use href="#pureSnowArm" transform="rotate(180)" />
+      <use href="#pureSnowArm" transform="rotate(240)" />
+      <use href="#pureSnowArm" transform="rotate(300)" />
+
+      <!-- Central Crystal Core Disc -->
+      <circle cx="0" cy="0" r="24" fill="#040914" stroke="url(#auroraIceGrad)" stroke-width="2.5" />
+      <circle cx="0" cy="0" r="21" fill="none" stroke="#38BDF8" stroke-width="1" stroke-dasharray="3, 3" opacity="0.8" />
+      
+      <!-- Central 12-Point Multi-Faceted Star Gem -->
+      <!-- Triangle A -->
+      <polygon points="0,-18 15.59,9 -15.59,9" fill="url(#facetGrad)" stroke="url(#auroraIceGrad)" stroke-width="1.6" opacity="0.9" />
+      <!-- Triangle B (Inverted) -->
+      <polygon points="0,18 -15.59,-9 15.59,-9" fill="url(#facetGrad)" stroke="url(#auroraIceGrad)" stroke-width="1.6" opacity="0.9" />
+      
+      <!-- Rotated Triangles (30 deg offset for 12-point star) -->
+      <g transform="rotate(30)">
+        <polygon points="0,-16 13.86,8 -13.86,8" fill="url(#facetGradAlt)" stroke="#7DD3FC" stroke-width="1.4" opacity="0.85" />
+        <polygon points="0,16 -13.86,-8 13.86,-8" fill="url(#facetGradAlt)" stroke="#7DD3FC" stroke-width="1.4" opacity="0.85" />
+      </g>
+
+      <!-- Inner Diamond Jewel -->
+      <polygon points="0,-10 10,0 0,10 -10,0" fill="#FFFFFF" stroke="#38BDF8" stroke-width="1.5" />
+      
+      <!-- Central Ice Crystal Node -->
+      <circle cx="0" cy="0" r="4.5" fill="#38BDF8" />
+      <circle cx="0" cy="0" r="2" fill="#FFFFFF" />
+    </g>
+  </g>
+
+  <!-- Central Pulsing 4-Point Lens Flare Cross -->
+  <g class="snowflake-flare">
+    <g transform="translate(160 160)">
+      <path d="M 0,-32 L 3.5,-5 L 32,0 L 3.5,5 L 0,32 L -3.5,5 L -32,0 L -3.5,-5 Z" fill="#FFFFFF" opacity="0.85" filter="url(#iceBloom)" />
+      <circle cx="0" cy="0" r="3" fill="#FFFFFF" />
+    </g>
+  </g>
+</svg>

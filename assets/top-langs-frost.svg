@@ -1,0 +1,74 @@
+<svg width="350" height="185" viewBox="0 0 350 185" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="auroraCardBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050B14"/>
+      <stop offset="60%" stop-color="#0B192C"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="cssAurora" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="htmlAurora" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <linearGradient id="jsAurora" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C084FC"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="ktAurora" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F472B6"/>
+      <stop offset="100%" stop-color="#DB2777"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .header { font-family: 'Cinzel', Georgia, serif; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; }
+    .lang-name { font-family: 'Space Grotesk', -apple-system, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; }
+    .lang-pct { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 400; }
+  </style>
+
+  <!-- Aurora Glass Card Frame -->
+  <rect x="0.5" y="0.5" width="349" height="184" rx="10" fill="url(#auroraCardBg)" stroke="#1E293B" stroke-width="1.2"/>
+  <rect x="3.5" y="3.5" width="343" height="178" rx="8" fill="none" stroke="#38BDF8" stroke-opacity="0.25" stroke-dasharray="3, 4"/>
+  
+  <!-- Header Title with Northern Lights Diamond -->
+  <g transform="translate(26, 32)">
+    <polygon points="2,-7.5 4.5,-2 8,-2 4.5,1 6,6 2,3 -2,6 -0.5,1 -4,-2 -0.5,-2" fill="#34D399"/>
+    <text x="16" y="0" class="header" fill="#F0FDF4">ARENDELLE CODE RATIOS</text>
+  </g>
+
+  <!-- Segmented Aurora Bar: Total 298px -->
+  <!-- CSS: 40% (119.2px) | HTML: 25% (74.5px) | JS: 20% (59.6px) | Kotlin: 15% (44.7px) -->
+  <g transform="translate(26, 52)">
+    <clipPath id="barClipAurora">
+      <rect x="0" y="0" width="298" height="8" rx="4"/>
+    </clipPath>
+    <g clip-path="url(#barClipAurora)">
+      <rect x="0" y="0" width="119.2" height="8" fill="url(#cssAurora)"/>
+      <rect x="119.2" y="0" width="74.5" height="8" fill="url(#htmlAurora)"/>
+      <rect x="193.7" y="0" width="59.6" height="8" fill="url(#jsAurora)"/>
+      <rect x="253.3" y="0" width="44.7" height="8" fill="url(#ktAurora)"/>
+    </g>
+  </g>
+
+  <!-- Languages Legend (2 Columns, 2 Rows) -->
+  <g transform="translate(26, 96)">
+    <circle cx="6" cy="-4.5" r="5" fill="#34D399"/>
+    <text x="20" y="0" class="lang-name" fill="#F8FAFC">CSS <tspan class="lang-pct" fill="#6EE7B7">40.0%</tspan></text>
+  </g>
+  <g transform="translate(26, 138)">
+    <circle cx="6" cy="-4.5" r="5" fill="#C084FC"/>
+    <text x="20" y="0" class="lang-name" fill="#F8FAFC">JavaScript <tspan class="lang-pct" fill="#E9D5FF">20.0%</tspan></text>
+  </g>
+
+  <g transform="translate(182, 96)">
+    <circle cx="6" cy="-4.5" r="5" fill="#38BDF8"/>
+    <text x="20" y="0" class="lang-name" fill="#F8FAFC">HTML <tspan class="lang-pct" fill="#BAE6FD">25.0%</tspan></text>
+  </g>
+  <g transform="translate(182, 138)">
+    <circle cx="6" cy="-4.5" r="5" fill="#F472B6"/>
+    <text x="20" y="0" class="lang-name" fill="#F8FAFC">Kotlin <tspan class="lang-pct" fill="#FBCFE8">15.0%</tspan></text>
+  </g>
+</svg>
