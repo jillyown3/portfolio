@@ -79,13 +79,11 @@
       --backdrop-blur: blur(18px) saturate(140%);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      cursor: none !important;
-    }
-
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
     html.lenis, html.lenis body { height: auto; }
     .lenis.lenis-smooth { scroll-behavior: auto !important; }
     .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
@@ -175,51 +173,6 @@
       pointer-events: none;
     }
 
-    /* GPU DUAL-RING AURORA CRYO CURSOR */
-    .cryo-cursor-core {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 7px;
-      height: 7px;
-      background: var(--aurora-green);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 12px var(--aurora-green), 0 0 20px var(--aurora-cyan);
-      transition: width 0.2s, height 0.2s, background-color 0.2s;
-    }
-
-    .cryo-cursor-ring {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 34px;
-      height: 34px;
-      border: 1.2px solid var(--aurora-cyan);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 99998;
-      transform: translate(-50%, -50%);
-      transition: width 0.25s cubic-bezier(0.1, 0.8, 0.2, 1), 
-                  height 0.25s cubic-bezier(0.1, 0.8, 0.2, 1), 
-                  border-color 0.25s, background-color 0.25s;
-    }
-
-    .cursor-hover .cryo-cursor-ring {
-      width: 56px;
-      height: 56px;
-      border-color: var(--aurora-green);
-      background-color: rgba(52, 211, 153, 0.1);
-      box-shadow: 0 0 25px rgba(52, 211, 153, 0.4), 0 0 40px rgba(56, 189, 248, 0.3);
-    }
-
-    .cursor-hover .cryo-cursor-core {
-      width: 11px;
-      height: 11px;
-      background: #FFFFFF;
-    }
 
     /* Native touch fallback: hide custom mouse cursor on smartphones/tablets */
     @media (hover: none) and (pointer: coarse) {
@@ -2094,10 +2047,6 @@
   <canvas id="etchCanvas"></canvas>
   <canvas id="freezeCanvas"></canvas>
 
-  <!-- DUAL-RING CURSOR -->
-  <div class="cryo-cursor-core" id="cursorCore"></div>
-  <div class="cryo-cursor-ring" id="cursorRing"></div>
-
   <!-- AHTOHALLAN MEMORY TERMINAL -->
   <div class="terminal-modal" id="terminalModal">
     <div class="term-bar">
@@ -3678,19 +3627,8 @@ data-link="https://github.com/jillyown3">
     /* ==========================================================
        9. GPU SPRING CURSOR ENGINE
        ========================================================== */
-    const cursorCore = document.getElementById('cursorCore');
-    const cursorRing = document.getElementById('cursorRing');
     let ringX = mouseX;
     let ringY = mouseY;
-
-    function renderCursor() {
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
-      cursorCore.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-      cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
-      requestAnimationFrame(renderCursor);
-    }
-    renderCursor();
 
     document.querySelectorAll('a, button, .ice-card, .cmd-item, .runestone-btn').forEach(el => {
       el.addEventListener('mouseenter', () => {
